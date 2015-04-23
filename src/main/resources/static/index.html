@@ -1,0 +1,33 @@
+<HTML>
+  <HEAD>
+    <TITLE>David Hoots - Jama Coding Exercise</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="theme.css"</LINK>
+    <SCRIPT TYPE="text/javascript" SRC="jquery-1.11.2.js"></SCRIPT>
+  </HEAD>
+ 
+  <BODY>   
+    <HEADER>
+      <TABLE ID="header">
+        <TR>
+          <TD ID="logo"><A HREF="//http://www.jamasoftware.com/"><IMG ID="logo" SRC="jama.png"/></A></TD>
+          <TD ID="title">David Hoots - Jama Coding Challenge</TD>
+        </TR>
+      </TABLE>
+    </HEADER>
+   
+    <FORM>
+      <DIV CLASS="label">List of Items: </DIV><DIV><INPUT TYPE="text" ID="itemList" NAME="itemList"></DIV><BR/>
+      <DIV CLASS="label">Result: </DIV><DIV ID="result">0</DIV>
+    </FORM>
+    
+    <SCRIPT TYPE="text/javascript">      
+      $("#itemList").keyup(function() {
+        $.post("checkout", { items: $("#itemList").val() }, function(response) {
+          $("div#result").html(response.checkoutResult.totalCost);
+        }, 'json').fail(function(xhr) {
+          $("div#result").html(jQuery.parseJSON(xhr.responseText).message);
+        });
+      });
+    </SCRIPT>
+  </BODY>
+</HTML>

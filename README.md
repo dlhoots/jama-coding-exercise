@@ -1,2 +1,3 @@
-# jama-coding-exercise
-Jama Coding Exercise
+- Make sure no other servers are running on port 8080
+- Execute "mvn spring-boot:run"
+- Access URL at "localhost:8080"
