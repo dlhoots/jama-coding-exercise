@@ -39,7 +39,7 @@ public class SupermarketController {
   }
 
   /**
-   * Create an error response that includes error information.
+   * Create a success response.
    * 
    * @param result The checkout result to wrap in an HTTP response.
    * @return A value suitable for including in an HTTP response.
